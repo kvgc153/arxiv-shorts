@@ -1,2 +1,2 @@
 # arxiv-shorts
-This repo consists of summarized astro-ph.GA abstracts. 
+This repo consists of AI-generated summaries of astro-ph.GA abstracts. 
