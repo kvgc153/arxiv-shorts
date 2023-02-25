@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "arxiv-shorts",
+	"version": "0.1.1",
+	"description": "https://github.com/kvgc/arxiv-shorts",
+
+	"permissions": [
+		"<all_urls>", "tabs", "storage","contextMenus"
+	],
+
+	"applications": {
+		"gecko": {
+			"id": "arxivshorts@arxivshorts.io"
+		}
+	},
+	"content_scripts": [
+	  {
+	    "matches": ["*://*.arxiv.org/*"],
+
+			"css":["ext_libs/jquery-ui.min.css",
+			"ext_libs/bootstrap.min.css"],
+
+	    "js": ["ext_libs/jquery.min.js",
+			"ext_libs/jquery-ui.min.js",
+			"src/background.js"
+		]
+	}
+	]
+
+}
