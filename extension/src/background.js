@@ -46,8 +46,11 @@ $.getJSON(summaryJSONurl, function(data) {
   ///////////////////////////////////////////////
   ///// Run when user visits past week page ///// 
   ///////////////////////////////////////////////
-
-  if(window.location.href.indexOf("https://arxiv.org/list/astro-ph.GA/pastweek?") > -1){
+  function checkURL(url){
+    // returns boolean
+    return(window.location.href.indexOf(url) > -1)
+  }
+  if(checkURL("https://arxiv.org/list/astro-ph.GA/pastweek?")| checkURL("https://arxiv.org/list/astro-ph.GA/recent") | checkURL("https://arxiv.org/list/astro-ph.GA/new")) {
     
     var papers = document.getElementsByClassName("list-identifier");
     var papersMeta = document.getElementsByClassName("meta"); 
@@ -61,7 +64,12 @@ $.getJSON(summaryJSONurl, function(data) {
           var AISummary = summaryJSON[currentPageUrl+versions[j]]['summary'];
 
           var newNode = document.createElement("div");
-          newNode.innerHTML = AISummary;
+          newNode.innerHTML               = "<b> Generated Summary: </b><br>" + AISummary + "<br>";
+          newNode.style.border            = "2px dotted black";
+          newNode.style.padding           = "10px";
+          newNode.style.backgroundColor   = "#F0F8FF";
+          newNode.style.width             = "40%";
+          newNode.style.fontFamily        = "Cambria";
           papersMeta[i].childNodes[3].appendChild(newNode);
           // papers1[0].childNodes[3]
 
