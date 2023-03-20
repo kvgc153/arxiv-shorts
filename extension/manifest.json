@@ -10,7 +10,7 @@
 
 	"applications": {
 		"gecko": {
-			"id": "arxivshorts@arxivshorts.io"
+			"id": "arxivshortsga@arxivshorts.ga.io"
 		}
 	},
 	"content_scripts": [
