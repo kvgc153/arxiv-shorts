@@ -3,7 +3,8 @@ var urlSplit = window.location.toString().split('//')[1];
 var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/main/arxiv-shorts.json';
 
 var source = document.getElementById('content');
-source.innerHTML +=`
+
+source.innerHTML +=DOMPurify.sanitize(`
  <div  id="summaryBox" style="left: 68%; height: 40%; position: fixed; width: 30%; bottom: 5%;z-index:10; background-color:white; overflow: auto;border-style: double;">
     <div class="card" style="width: 100%">
       <div class="card-body">
@@ -12,7 +13,7 @@ source.innerHTML +=`
            </div>
       </div>
     </div>
- </div>`;
+ </div>`);
 
 $.getJSON(summaryJSONurl, function(data) {
 
@@ -32,7 +33,7 @@ $.getJSON(summaryJSONurl, function(data) {
     for(var i=0; i< versions.length; i++){
       try{
         var AISummary = summaryJSON["http://"+urlSplit+versions[i]]['summary'];
-        document.getElementById('summarizedNotes').innerHTML += AISummary;
+        document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(AISummary);
       }
       catch(error){
         // console.error(error);
