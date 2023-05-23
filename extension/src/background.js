@@ -65,7 +65,7 @@ $.getJSON(summaryJSONurl, function(data) {
           var AISummary = summaryJSON[currentPageUrl+versions[j]]['summary'];
 
           var newNode = document.createElement("div");
-          newNode.innerHTML               = "<b> Generated Summary: </b><br>" + AISummary + "<br>";
+          newNode.innerHTML               =  DOMPurify.sanitize("<b> Generated Summary: </b><br>" + AISummary + "<br>");
           newNode.style.border            = "2px dotted black";
           newNode.style.padding           = "10px";
           newNode.style.backgroundColor   = "#F0F8FF";
