@@ -1,7 +1,6 @@
 
 var urlSplit = window.location.toString().split('//')[1];
-var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/main/arxiv-shorts.json';
-
+var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/more-options/arxiv-shorts-v2.json';
 var source = document.getElementById('content');
 
 source.innerHTML +=DOMPurify.sanitize(`
