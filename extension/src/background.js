@@ -1,6 +1,6 @@
 
 var urlSplit = window.location.toString().split('//')[1];
-var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/main/arxiv-shorts.json';
+var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/main/arxiv-shorts-v2.json';
 
 var source = document.getElementById('content');
 
@@ -8,7 +8,7 @@ source.innerHTML +=DOMPurify.sanitize(`
  <div  id="summaryBox" style="left: 68%; height: 40%; position: fixed; width: 30%; bottom: 5%;z-index:10; background-color:white; overflow: auto;border-style: double;">
     <div class="card" style="width: 100%">
       <div class="card-body">
-        <h5 class="card-title">Summary</h5>
+        <h5 class="card-title"></h5>
            <div id="summarizedNotes" class="card-text" >
            </div>
       </div>
@@ -33,7 +33,12 @@ $.getJSON(summaryJSONurl, function(data) {
     for(var i=0; i< versions.length; i++){
       try{
         var AISummary = summaryJSON["http://"+urlSplit+versions[i]]['summary'];
-        document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(AISummary);
+        var topics = summaryJSON["http://"+urlSplit+versions[i]]['topics'];
+        var concepts = summaryJSON["http://"+urlSplit+versions[i]]['concepts'];
+        var context = summaryJSON["http://"+urlSplit+versions[i]]['context'];
+
+        var makeHTML = "<b> Generated Summary: </b><br>" + AISummary + "<br><br><b> Topics: </b><br>" + topics + "<br><br><b> Concepts: </b><br>" + concepts + "<br><br><b> Context: </b><br>" + context + "<br><br>";
+        document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(makeHTML);
       }
       catch(error){
         // console.error(error);
