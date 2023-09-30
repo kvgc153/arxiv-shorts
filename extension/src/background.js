@@ -33,11 +33,11 @@ $.getJSON(summaryJSONurl, function(data) {
     for(var i=0; i< versions.length; i++){
       try{
         var AISummary = summaryJSON["http://"+urlSplit+versions[i]]['summary'];
-        var topics = summaryJSON["http://"+urlSplit+versions[i]]['topics'];
+        // var topics = summaryJSON["http://"+urlSplit+versions[i]]['topics'];
         var concepts = summaryJSON["http://"+urlSplit+versions[i]]['concepts'];
         var conceptsKeys = Object.keys(concepts);
 
-        var makeHTML0 = "<h3> Generated Summary: </h3>" + AISummary + "<br><br><hr>";
+        var makeHTML0 = "<h3> Generated Summary: </h3>" + AISummary + "<br><br><hr> <h3> Concepts: </h3><br>";
         var makeHTML1 = ''
         for(var j=0; j< conceptsKeys.length; j++){
           var foo = j+1;
