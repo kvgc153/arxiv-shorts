@@ -3,11 +3,12 @@ var urlSplit = window.location.toString().split('//')[1];
 var summaryJSONurl = 'https://raw.githubusercontent.com/kvgc/arxiv-shorts/more-options/arxiv-shorts-v2.json';
 var source = document.getElementById('content');
 
+
 source.innerHTML +=DOMPurify.sanitize(`
- <div  id="summaryBox" style="left: 68%; height: 40%; position: fixed; width: 30%; bottom: 5%;z-index:10; background-color:white; overflow: auto;border-style: double;">
+ <div  id="summaryBox" style="left: 68%; height: 70%; position: fixed; width: 30%; bottom: 5%;z-index:10; background-color:white; overflow: auto;border-style: double;">
     <div class="card" style="width: 100%">
       <div class="card-body">
-        <h5 class="card-title">Summary</h5>
+        <h5 class="card-title"></h5>
            <div id="summarizedNotes" class="card-text" >
            </div>
       </div>
@@ -32,7 +33,32 @@ $.getJSON(summaryJSONurl, function(data) {
     for(var i=0; i< versions.length; i++){
       try{
         var AISummary = summaryJSON["http://"+urlSplit+versions[i]]['summary'];
-        document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(AISummary);
+        var topics = summaryJSON["http://"+urlSplit+versions[i]]['topics'];
+        var concepts = summaryJSON["http://"+urlSplit+versions[i]]['concepts'];
+        var conceptsKeys = Object.keys(concepts);
+
+        var makeHTML0 = "<h3> Generated Summary: </h3>" + AISummary + "<br><br><hr>";
+        var makeHTML1 = ''
+        for(var j=0; j< conceptsKeys.length; j++){
+          var foo = j+1;
+          makeHTML1 += `
+          <div class="card bg-light mb-3">
+            <div class="card-body">
+              <h5 class="card-title">${foo}. ${conceptsKeys[j]}</h5><br>
+              <p class="card-text">
+                ${concepts[conceptsKeys[j]].context}<br><br>
+                <b>Def'n: </b>${concepts[conceptsKeys[j]].definition}<br><br>
+                <b>Usage: </b>${concepts[conceptsKeys[j]].usefulness}<br><br>
+              </p>
+            </div>
+          </div><br><br>
+        `;
+        }
+        
+
+        document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(makeHTML0 + makeHTML1);
+
+
       }
       catch(error){
         // console.error(error);
@@ -41,6 +67,7 @@ $.getJSON(summaryJSONurl, function(data) {
     }
     
   }
+
 
 
   ///////////////////////////////////////////////
