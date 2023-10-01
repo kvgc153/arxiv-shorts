@@ -11,6 +11,3 @@ Download the extension from the [Firefox addons store](https://addons.mozilla.or
 ![](arxiv-shorts-demo2.png)
 
 Try it out and if you run into any issues, please report them in the repo. Thanks!
-
-### Licence 
-This project is licensed under the terms of the GNU General Public License v3.0.
