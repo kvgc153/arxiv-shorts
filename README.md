@@ -24,7 +24,7 @@ You can also read the summaries for the entire week by visiting the [past week](
 - Search for astrobites articles that cover the paper.
 - Annotate pdfs using hypothes.is
 
-Click [here](features.md) for a detailed documenation of the features.
+Click [here](features.md) for a detailed documentation of the features.
 
 
 
