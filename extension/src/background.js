@@ -42,6 +42,7 @@ function checkURL(url){
 if(checkURL("https://arxiv.org/abs/")){
 $.getJSON(summaryJSONurl, function(data) {
   var summaryJSON = data; 
+  try{
   if(summaryJSON.hasOwnProperty('summary')){
     var makeHTML0 = "<h3> Summary: </h3>" + summaryJSON['summary'] + "<br><br><hr> <h3> Concepts: </h3><br><hr>";
     document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(makeHTML0 );
@@ -95,7 +96,10 @@ $.getJSON(summaryJSONurl, function(data) {
       document.getElementById('summarizedNotes').innerHTML += DOMPurify.sanitize(foo.outerHTML + "<br><br>");
     } 
   }
-
+  }
+  catch(err){
+    console.log(err); 
+  }
 
 
 
