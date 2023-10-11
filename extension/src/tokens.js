@@ -9,16 +9,25 @@ function onError(error) {
 }
 
 
-var jsFiles = [ "src/background.js"	];
+var jsFiles = [ "src/background.js", "src/toolbox.js"	];
 
 function module2(){
 
  const executing = browser.tabs.executeScript({
     file: jsFiles[0]
   });
+  executing.then(module3, onError);
+}
+
+function module3(){
+
+  const executing = browser.tabs.executeScript({
+    file: jsFiles[1]
+  });
   executing.then(onExecuted, onError);
 
 }
+
 
 function module1(){
 

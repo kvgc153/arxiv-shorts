@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "arxiv-shorts",
-	"version": "2.0beta",
+	"version": "2.0.0",
 	"description": "https://github.com/kvgc/arxiv-shorts",
 
 	"permissions": [
@@ -20,7 +20,7 @@
 		{
 		  "matches": ["*://arxiv.org/*"],
 		  "css":["ext_libs/jquery-ui.min.css","ext_libs/bootstrap.min.css"],
-		  "js": ["ext_libs/purify.min.js","ext_libs/jquery.min.js","ext_libs/jquery-ui.min.js","src/contentScript.js"],
+		  "js": ["ext_libs/purify.min.js","ext_libs/jquery.min.js","ext_libs/jquery-ui.min.js", "src/contentScript.js"],
 		  "run_at": "document_start"
 		}
 	  ]
