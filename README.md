@@ -27,6 +27,9 @@ You can also read the summaries for the entire week by visiting the [past week](
 Click [here](features.md) for a detailed documentation of the features.
 
 
+### Acknowledgements 
+Thank you to arXiv and ADS for use of its open access interoperability
+
 
 
 
