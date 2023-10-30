@@ -7,7 +7,7 @@ function handleResponse(message) {
     console.log(`Error: ${error}`);
   }
   
-  function notifyBackgroundPage(e) {
+  function notify_arxivshorts(e) {
       console.log("Sending message to background page");
       let sending = browser.runtime.sendMessage({
         greeting: "Sending trigger to start extension"
@@ -16,6 +16,4 @@ function handleResponse(message) {
 
   }
   
-  window.onload = function() {
-    notifyBackgroundPage();
-  };
+notify_arxivshorts();
