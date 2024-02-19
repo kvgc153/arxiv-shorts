@@ -14,6 +14,24 @@ source_tbox.innerHTML += DOMPurify.sanitize(`
 `);
 
 
+//Open PDF by default
+
+var iframe = document.createElement('iframe');
+iframe.src = "https://arxiv.org/pdf/"+paperID_tbox+".pdf";
+iframe.width = 1200;
+iframe.height = 100000;
+iframe.id    = 'IframeElement';
+var destination = document.getElementById('renderDisplay');
+
+if(document.getElementById('IframeElement') !== null){
+     document.getElementById('IframeElement').remove();
+     destination.appendChild(iframe);
+}
+else{
+     destination.appendChild(iframe);
+}
+
+
 /////////////////////////////////////
 
 
@@ -23,7 +41,7 @@ document.getElementById('arxiv-pdf').onclick = function() {
    var iframe = document.createElement('iframe');
    iframe.src = "https://arxiv.org/pdf/"+paperID_tbox+".pdf";
    iframe.width = 1200;
-   iframe.height = 900;
+   iframe.height = 100000;
    iframe.id    = 'IframeElement';
    var destination = document.getElementById('renderDisplay');
 
