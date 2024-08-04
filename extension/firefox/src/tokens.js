@@ -1,3 +1,5 @@
+var jsFiles = [ "src/background.js", "src/toolbox.js"	];
+
 
 // error catching functions
 function onExecuted(result) {
@@ -9,46 +11,42 @@ function onError(error) {
 }
 
 
-var jsFiles = [ "src/background.js", "src/toolbox.js"	];
-
-function module2(){
-
- const executing = browser.tabs.executeScript({
-    file: jsFiles[0]
-  });
-  executing.then(module3, onError);
-}
-
-function module3(){
-
-  const executing = browser.tabs.executeScript({
-    file: jsFiles[1]
-  });
-  executing.then(onExecuted, onError);
-
-}
 
 
-function module1(){
+
+function module1(tabID){
 
   var arxivToken =   browser.storage.sync.get('arxivshorts');  
   arxivToken.then((res) => {
     var foo_res = JSON.parse(res.arxivshorts);
-    const executing = browser.tabs.executeScript({
+    const executing = browser.tabs.executeScript(tabID,{
         code:`var arxivToken="`+ foo_res + `";`
     });
-    executing.then(module2, onError);
+    executing.then(module2(tabID), onError);
   
   });
-
-
-
 }
+
+function module2(tabID){
+
+  const executing = browser.tabs.executeScript(tabID,{
+     file: jsFiles[0]
+   });
+   executing.then(module3(tabID), onError);
+ }
+ 
+ function module3(tabID){
+   const executing = browser.tabs.executeScript(tabID,{
+     file: jsFiles[1]
+   });
+   executing.then(onExecuted, onError);
+ }
 
 
 function handleMessage(request, sender, sendResponse) {
   console.log("arxivshorts: " + request.greeting);
-  module1();
+  console.log(sender.tab.id);  
+  module1(sender.tab.id);
   sendResponse({response: "arxivshorts:"});
 }
 // Trigger loading of modules //
