@@ -61,15 +61,15 @@ if(window['visited'] != 'true'){
             relatedPapers = '';
             // for(var k=0;k<concepts[conceptsKeys[j]].ss_id.length;k++){
             myKeys ={arxivTitle: 'true'};
-            for(var k=0;k<4;k++){
-              if(myKeys.hasOwnProperty(concepts[conceptsKeys[j]].ss_title[k])){;}
-              else{
-                if(arxivTitle != concepts[conceptsKeys[j]].ss_title[k]){
-                myKeys[concepts[conceptsKeys[j]].ss_title[k]] = 'true';
-                relatedPapers += `<a href="${concepts[conceptsKeys[j]].ss_id[k]}">${concepts[conceptsKeys[j]].ss_title[k]}</a><br> `;
-                }
-              }
-            }
+            // for(var k=0;k<4;k++){
+            //   if(myKeys.hasOwnProperty(concepts[conceptsKeys[j]].ss_title[k])){;}
+            //   else{
+            //     if(arxivTitle != concepts[conceptsKeys[j]].ss_title[k]){
+            //     myKeys[concepts[conceptsKeys[j]].ss_title[k]] = 'true';
+            //     relatedPapers += `<a href="${concepts[conceptsKeys[j]].ss_id[k]}">${concepts[conceptsKeys[j]].ss_title[k]}</a><br> `;
+            //     }
+            //   }
+            // }
             makeHTML1 += `
             <div class="card bg-light mb-3">
               <div class="card-body">
@@ -82,9 +82,7 @@ if(window['visited'] != 'true'){
                     <a href="https://www.google.com/search?q=${conceptsKeys[j]}" class="btn btn-outline-primary btn-sm"> Google</a>
                     <a href="https://www.bing.com/search?showconv=1&sendquery=1&q= tell me about ${conceptsKeys[j]}. Suggest me useful articles to read about it. Use images from the internet as required" class="btn btn-outline-primary btn-sm"> Bing AI Chat</a>
 
-                   <br><br>
-                  <b>Related arXiv papers:</b><br> ${relatedPapers}<br>
-                </p>
+                   </p>
               </div>
             </div>
           `;
