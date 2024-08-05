@@ -1,9 +1,10 @@
-var source_tbox = document.getElementById('content');
-var urlSplit_tbox = window.location.toString().split('/');
-var paperID_tbox  = urlSplit_tbox[urlSplit_tbox.length-1];
 
 
 function insertButtons(){
+     var source_tbox = document.getElementById('content');
+     var urlSplit_tbox = window.location.toString().split('/');
+     var paperID_tbox  = urlSplit_tbox[urlSplit_tbox.length-1];
+
      source_tbox.innerHTML += DOMPurify.sanitize(`
      <div>
      <button class="btn btn-lg btn-primary" id='arxiv-pdf'>Load pdf</button>
