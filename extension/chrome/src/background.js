@@ -43,7 +43,7 @@ if(window['visited'] != 'true'){
       </div>
   </div>`);
 
-    const response = await fetch(url,{mode:'no-cors'});
+    const response = await fetch(url);
     const summaryJSON = await response.json();
 
     if(mode == 'abstract'){
