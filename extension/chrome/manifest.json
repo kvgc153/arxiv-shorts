@@ -4,9 +4,7 @@
     "version": "2.0.6",
     "description": "https://github.com/kvgc/arxiv-shorts",
     "permissions": [
-      "tabs",
       "storage",
-      "activeTab",
       "scripting"
     ],
     "host_permissions": [
