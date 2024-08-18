@@ -2,7 +2,9 @@
 
 >A Firefox extension designed to supercharge your arXiv reading experience. Powered by an army of silicon atoms,
 
-Download the extension from the [Firefox addons store](https://addons.mozilla.org/en-US/firefox/addon/arxiv-shorts/).
+The extension is available on [Firefox](https://addons.mozilla.org/en-US/firefox/addon/arxiv-shorts/). and [Chrome (in beta)](https://chromewebstore.google.com/detail/arxiv-shorts/iifmfagbocnledpmfejglaombgneeebi?authuser=0&hl=en-GB).
+
+
 
 
 ## Demo
@@ -14,7 +16,6 @@ This extension adds key components to each arxiv paper:
 #### Core
 - An AI generated summary of the abstract
 - A list of concepts needed to understand the abstract, including a brief explanation of their importance and how they are used in the abstract.
-- Other relevant papers to read (experimental).
 
 ![](features.png)
 
