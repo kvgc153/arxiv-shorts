@@ -4,6 +4,8 @@ if(window['visited'] != 'true'){
 
   var source = document.getElementsByClassName("abstract")[0];
   var urlSplit = window.location.toString().split('//')[1];
+  var urlSplit = urlSplit.split("?context")[0];
+  console.log(urlSplit);
   var urlSplit = urlSplit.split('/');
   var arxivID  = urlSplit[urlSplit.length-1];
   var arxivTitle = document.getElementsByClassName("title mathjax")[0].outerText;
@@ -28,16 +30,18 @@ if(window['visited'] != 'true'){
   }
 
   async function returnJSON(url, mode) {
+
     source.innerHTML += DOMPurify.sanitize(`
 <br><br>
 <div id="summaryBox" style="background-color:transparent; overflow: auto; padding: 16px;">
-  <div style="border: 1px solid #e1e8ed; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); border-radius: 10px; max-width: 600px; margin: 0 auto; padding: 16px; background-color: #ffffff;">
+  <div style="border: 1px solid #e1e8ed; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); border-radius: 10px; max-width: 600px; padding: 16px; background-color: #ffffff;">
     <div style="font-family: Arial, sans-serif;">
-      <h5 style="font-size: 16px; margin-bottom: 8px; color: #1da1f2;">Summary</h5>
       <div id="summarizedNotes" style="font-size: 14px; color: #14171a;"></div>
     </div>
   </div>
 </div>`);
+// /* <h5 style="font-size: 16px; margin-bottom: 8px; color: #1da1f2;">Summary</h5> */
+
 
     const response = await fetch(url);
     const summaryJSON = await response.json();
