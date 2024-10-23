@@ -32,14 +32,14 @@ if(window['visited'] != 'true'){
   async function returnJSON(url, mode) {
 
     source.innerHTML += DOMPurify.sanitize(`
-<br><br>
-<div id="summaryBox" style="background-color:transparent; overflow: auto; padding: 16px;">
-  <div style="border: 1px solid #e1e8ed; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); border-radius: 10px; max-width: 600px; padding: 16px; background-color: #ffffff;">
-    <div style="font-family: Arial, sans-serif;">
-      <div id="summarizedNotes" style="font-size: 14px; color: #14171a;"></div>
-    </div>
-  </div>
-</div>`);
+      <br><br>
+      <div id="summaryBox" style="overflow: auto; padding: 16px;">
+        <div style="border: 1px solid #e1e8ed; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); border-radius: 10px; max-width: 600px; padding: 16px; background-color: #f0fcfd;">
+          <div style="font-family: 'Courier New', Courier, monospace;">
+            <div id="summarizedNotes" style="font-size: 14px; color: #14171a;"></div>
+          </div>
+        </div>
+      </div>`);
 // /* <h5 style="font-size: 16px; margin-bottom: 8px; color: #1da1f2;">Summary</h5> */
 
 
