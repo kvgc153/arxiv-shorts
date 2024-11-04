@@ -1,6 +1,4 @@
 # arxiv-shorts
-# !! Under maintanence -- will be back in October 2024.!!
-
 >A Firefox extension designed to supercharge your arXiv reading experience. Powered by an army of silicon atoms,
 
 The extension is available on [Firefox](https://addons.mozilla.org/en-US/firefox/addon/arxiv-shorts/). and [Chrome (in beta)](https://chromewebstore.google.com/detail/arxiv-shorts/iifmfagbocnledpmfejglaombgneeebi?authuser=0&hl=en-GB).
