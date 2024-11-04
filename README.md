@@ -1,4 +1,5 @@
 # arxiv-shorts
+# !! Under maintanence -- will be back in October 2024.!!
 
 >A Firefox extension designed to supercharge your arXiv reading experience. Powered by an army of silicon atoms,
 
